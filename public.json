@@ -136,11 +136,11 @@
     }
   },
   {
-    "address": "Nguyễn Thị Minh Khai, Phường Quy Nhơn Nam, Tỉnh Gia Lai",
+    "address": "Nguyễn Thị Minh Khai, Phường Quy Nhơn Nam, TP Sài gòn",
     "result": {
       "street": "Nguyễn Thị Minh Khai",
       "ward": "Quy Nhơn Nam",
-      "province": "Gia Lai"
+      "province": "Sài gòn"
     }
   },
   {
@@ -160,7 +160,15 @@
     }
   },
   {
-    "address": "Ngách 34/9 phố Nguyễn Khắc Viện, Phường Việt Hưng, Thành phố Hà Nội",
+    "address": "Ngách 34/9 phốNKV, Phường Việt Hưng, Thành phố Hà Nội",
+    "result": {
+      "street": "Nguyễn Khắc Viện",
+      "ward": "Việt Hưng",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "address": "Hẻm 34 phố Nguyễn Khắc Viện, Phường Việt Hưng, Thành phố Hà Nội",
     "result": {
       "street": "Nguyễn Khắc Viện",
       "ward": "Việt Hưng",
