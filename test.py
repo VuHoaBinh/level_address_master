@@ -35,8 +35,11 @@ def nk(s):
     return norm_map(s)[1]
 
 
+EMPTY = ""      # gia tri tra ve khi thieu thanh phan (thay giao noi ""; doi thanh None neu public.json dung null)
+
+
 # ---------------------------------------------------------------- tien to / alias
-PROV_NAME_PFX = {"thanhpho", "tinh", "thudo"}
+PROV_NAME_PFX = {"thanhpho", "tp", "tinh", "thudo"}
 WARD_NAME_PFX = {"phuong", "xa", "thitran", "dackhu"}
 STREET_NAME_PFX = {"duong", "pho"}
 
@@ -45,16 +48,22 @@ WARD_PFX = ("phuong", "dackhu", "thitran", "xa", "p", "x")
 WARD_EXPLICIT = ("phuong", "thitran", "dackhu", "xa")
 SUFFIX_JUNK = ("vietnam",)
 
-# viet tat pho bien (key = ten tinh khong dau, khong tien to). Viet tat chu cai dau tu sinh them neu khong trung.
-PROV_ALIAS = {
-    "hochiminh": ("hcm", "tphcm", "sg", "saigon", "hcmc"),
-    "hanoi": ("hn",),
-    "danang": ("dn",),
-    "haiphong": ("hp",),
-    "cantho": ("ct",),
+# Viet tat chu cai dau (hn, dn, hcm, dnai, tpdn...) duoc SINH TU DONG tu ten tinh trong DB (xem gen_abbrevs).
+# Day chi la alias KHONG suy ra duoc tu ten (key = ten tinh khong dau, khong tien to). Co the bo trong.
+PROV_ALIAS_EXTRA = {
+    "hochiminh": ("sg", "saigon", "hcmc"),
     "bariavungtau": ("brvt", "vungtau"),
     "thuathienhue": ("tth",),
 }
+
+
+def gen_abbrevs(words):
+    """Ten tinh (da bo tien to) -> cac viet tat sinh tu dong. 'Dong Nai' -> {dn, dnai}; 'Ho Chi Minh' -> {hcm, hcminh}."""
+    ws = [w for w in (nk(x) for x in words) if w]
+    if len(ws) < 2:
+        return set()
+    ini = "".join(w[0] for w in ws)
+    return {ini, ini[:-1] + ws[-1]}                      # chu cai dau; chu cai dau + nguyen tu cuoi (dnai, qninh)
 
 
 def strip_name_prefix(name, pfxs):
@@ -157,10 +166,11 @@ class Index:
         self._items = []
         self.fuzzy = None
 
-    def add(self, key, val):
+    def add(self, key, val, fuzzy=True):
         if key:
             self.trie.add(key, val)
-            self._items.append((key, val))
+            if fuzzy:
+                self._items.append((key, val))
 
     def done(self):
         self.fuzzy = Fuzzy(self._items) if self._items else None
@@ -259,23 +269,21 @@ class AddressParser:
         self.raw_ward_fallback = raw_ward_fallback
         self.has_streets = any(sts for ws in db.values() for sts in ws.values())
 
-        ini = {}
-        for p in db:
-            words = strip_name_prefix(p, PROV_NAME_PFX).split()
-            ini[p] = "".join(nk(w)[:1] for w in words) if len(words) >= 2 else None
-        cnt = Counter(v for v in ini.values() if v)
-
         self.prov = Index()
         self.ward, self.street, self.pstreet = {}, {}, {}
         self.gward = RTrie()                                   # ward toan quoc (suy ra province khi input thieu)
+        self.ptype = {}                                        # loai: "city" (Thanh pho) / "prov" (Tinh) / None
 
         for p, ws in db.items():
+            np_ = nk(p)
+            self.ptype[p] = "city" if np_.startswith(("thanhpho", "tp")) else "prov" if np_.startswith("tinh") else None
             base = strip_name_prefix(p, PROV_NAME_PFX)
-            keys = {nk(p), nk(base)} | set(PROV_ALIAS.get(nk(base), ()))
-            if ini[p] and cnt[ini[p]] == 1:
-                keys.add(ini[p])
-            for key in keys:
-                self.prov.add(key, p)
+            for key in {np_, nk(base)}:
+                self.prov.add(key, p)                          # ten day du: cho phep sua loi
+            abbr = gen_abbrevs(base.split()) | set(PROV_ALIAS_EXTRA.get(nk(base), ()))
+            for a_ in abbr:                                    # viet tat: chi khop chinh xac, CHO PHEP trung (dn -> Da Nang/Dong Nai)
+                self.prov.add(a_, p, fuzzy=False)
+                self.prov.add("tp" + a_, p, fuzzy=False)
 
             widx, psidx = Index(), Index()
             for w, sts in ws.items():
@@ -379,6 +387,22 @@ class AddressParser:
 
     # ------------------------------------------------------------ parse
     def parse(self, addr):
+        out, cands, hint = self._parse(addr)
+        if len(cands) > 1:                                       # viet tat nhap nhang (TPDN, QN, LC...): chon theo ward/street/loai
+            def score(ic):
+                i, c = ic
+                o = self._parse(addr, force=c)[0]
+                sc = 2 * (o["ward"] is not None)
+                if self.has_streets:
+                    sc += o["street"] is not None
+                if hint and self.ptype.get(c) == hint:
+                    sc += 0.5
+                return (sc, -i)
+            _, c = max(enumerate(cands), key=score)
+            out = self._parse(addr, force=c)[0]
+        return {f: (EMPTY if v is None else v) for f, v in out.items()}
+
+    def _parse(self, addr, force=None):
         s, k, pos = norm_map(addr)
         end = len(k)
         for j in SUFFIX_JUNK:
@@ -386,15 +410,21 @@ class AddressParser:
                 end -= len(j)
         out = {"street": None, "ward": None, "province": None}
         if end <= 0:
-            return out
+            return out, [], None
 
         # ---- province
-        province = None
+        province, cands, hint = None, [], None
         m = self._match(self.prov, k, s, pos, end)
         if m:
-            province = m[0][0]
-            pstart = m[1]
+            cands = list(m[0])
+            province = force if force in cands else cands[0]
+            pstart, raw_end = m[1], end
             end = self._strip_prefix(s, k, pos, pstart, PROV_PFX)
+            pre = k[end:pstart]
+            if pre in ("tp", "thanhpho", "thudo") or k[pstart:raw_end].startswith(("tp", "thanhpho")):
+                hint = "city"
+            elif pre in ("tinh", "t"):
+                hint = "prov"
 
         # ---- ward
         ward, wstart = None, end
@@ -427,8 +457,11 @@ class AddressParser:
             lastc = s.rfind(",", 0, cut)
             # khop "nuot" mot phan ten duong (khong co tien to ro rang, khong sat dau phay) -> khong tin
             left = s[lastc + 1: cut].strip(" .") if lastc != -1 else ""
-            if not explicit and left and not _near_prefix(nk(left)):
-                ward, cut_k = None, end
+            if not explicit and left:
+                if not _near_prefix(nk(left)):
+                    ward, cut_k = None, end
+                else:
+                    cut_k = bisect_left(pos, lastc + 1)          # bo luon tien to ward go sai
 
         # ---- street
         street = None
@@ -462,7 +495,7 @@ class AddressParser:
         if not ward and self.raw_ward_fallback:
             ward = raw_ward
         out.update(street=street, ward=ward, province=province)
-        return out
+        return out, cands, hint
 
 
 # ---------------------------------------------------------------- du lieu nhieu tu db (de tu kiem tra)
