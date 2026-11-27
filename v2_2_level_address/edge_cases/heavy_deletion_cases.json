@@ -1,0 +1,135 @@
+{
+  "dictionaries": {
+    "list_province": [
+      "Quảng Ninh",
+      "Hà Nội"
+    ],
+    "list_ward": [
+      "Tây Hồ",
+      "Cẩm Dương"
+    ],
+    "list_street": [
+      "Bình Nguyên",
+      "Bình Nam",
+      "An Bình",
+      "An Bắc",
+      "Hải Âu 4"
+    ]
+  },
+  "links": [
+    {
+      "street": "Bình Nguyên",
+      "ward": "Cẩm Dương",
+      "province": "Quảng Ninh"
+    },
+    {
+      "street": "Bình Nam",
+      "ward": "Tây Hồ",
+      "province": "Hà Nội"
+    },
+    {
+      "street": "An Bình",
+      "ward": "Tây Hồ",
+      "province": "Hà Nội"
+    },
+    {
+      "street": "An Bắc",
+      "ward": "Tây Hồ",
+      "province": "Hà Nội"
+    },
+    {
+      "street": "Hải Âu 4",
+      "ward": "Cẩm Dương",
+      "province": "Quảng Ninh"
+    }
+  ],
+  "cases": [
+    [
+      "Đường Bny n, P. Cẩm Dương, T. Quảng Ninh",
+      [
+        "Bình Nguyên",
+        "Cẩm Dương",
+        "Quảng Ninh"
+      ]
+    ],
+    [
+      "Bnyn, P. Cẩm Dương, T. Quảng Ninh",
+      [
+        "Bình Nguyên",
+        "Cẩm Dương",
+        "Quảng Ninh"
+      ]
+    ],
+    [
+      "TP Quảng Ninh P Cẩm Dương Đường Bnyn",
+      [
+        "Bình Nguyên",
+        "Cẩm Dương",
+        "Quảng Ninh"
+      ]
+    ],
+    [
+      "Đ. Bình Nguyên, P. Cm Dưg, T. Quảng Ninh",
+      [
+        "Bình Nguyên",
+        "Cẩm Dương",
+        "Quảng Ninh"
+      ]
+    ],
+    [
+      "Đ. Bình Nguyên, P. Cẩm Dương, T. Qă Nn",
+      [
+        "Bình Nguyên",
+        "Cẩm Dương",
+        "Quảng Ninh"
+      ]
+    ],
+    [
+      "Đường Hi 4, P. Cẩm Dương, T. Quảng Ninh",
+      [
+        "Hải Âu 4",
+        "Cẩm Dương",
+        "Quảng Ninh"
+      ]
+    ],
+    [
+      "Đường Hi 5, P. Cẩm Dương, T. Quảng Ninh",
+      [
+        "",
+        "Cẩm Dương",
+        "Quảng Ninh"
+      ]
+    ],
+    [
+      "P. Cẩm Dương, T. Quảng Ninh",
+      [
+        "",
+        "Cẩm Dương",
+        "Quảng Ninh"
+      ]
+    ],
+    [
+      "Đường Byn, P. Cẩm Dương, T. Quảng Ninh",
+      [
+        "",
+        "Cẩm Dương",
+        "Quảng Ninh"
+      ]
+    ],
+    [
+      "Đường Bnyn, P. Cm Dưg, T. Qă Nn",
+      [
+        "Bình Nguyên",
+        "Cẩm Dương",
+        "Quảng Ninh"
+      ]
+    ]
+  ],
+  "tie": {
+    "address": "Đ. A.B., P. Tây Hồ, TP Hà Nội",
+    "expected_streets": [
+      "An Bình",
+      "An Bắc"
+    ]
+  }
+}

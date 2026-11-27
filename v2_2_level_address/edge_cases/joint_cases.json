@@ -1,0 +1,122 @@
+{
+  "dictionaries": {
+    "list_street": [
+      "An Bình",
+      "An Bắc"
+    ],
+    "list_ward": [
+      "Cẩm Dương",
+      "Cẩm Đông"
+    ],
+    "list_province": [
+      "Nam Hà",
+      "Nam Hòa"
+    ]
+  },
+  "cases": [
+    {
+      "name": "Cả ba tên mơ hồ, một bộ ba có bằng chứng",
+      "links": [
+        {
+          "street": "An Bình",
+          "ward": "Cẩm Dương",
+          "province": "Nam Hà"
+        }
+      ],
+      "address": "Đ. A.B., P. C.D., TP. N.H.",
+      "expected": {
+        "street": "An Bình",
+        "ward": "Cẩm Dương",
+        "province": "Nam Hà"
+      }
+    },
+    {
+      "name": "Hai bộ ba đồng điểm",
+      "links": [
+        {
+          "street": "An Bình",
+          "ward": "Cẩm Dương",
+          "province": "Nam Hà"
+        },
+        {
+          "street": "An Bắc",
+          "ward": "Cẩm Đông",
+          "province": "Nam Hòa"
+        }
+      ],
+      "address": "Đ. A.B., P. C.D., TP. N.H.",
+      "expected": [
+        {
+          "street": "An Bình",
+          "ward": "Cẩm Dương",
+          "province": "Nam Hà"
+        },
+        {
+          "street": "An Bắc",
+          "ward": "Cẩm Đông",
+          "province": "Nam Hòa"
+        }
+      ]
+    },
+    {
+      "name": "Hai đường cùng phường và tỉnh",
+      "links": [
+        {
+          "street": "An Bình",
+          "ward": "Cẩm Dương",
+          "province": "Nam Hà"
+        },
+        {
+          "street": "An Bắc",
+          "ward": "Cẩm Dương",
+          "province": "Nam Hà"
+        }
+      ],
+      "address": "Đ. A.B., P. C.D., TP. N.H.",
+      "expected": [
+        {
+          "street": "An Bình",
+          "ward": "Cẩm Dương",
+          "province": "Nam Hà"
+        },
+        {
+          "street": "An Bắc",
+          "ward": "Cẩm Dương",
+          "province": "Nam Hà"
+        }
+      ]
+    },
+    {
+      "name": "Không có viết tắt đường trong đầu vào",
+      "links": [
+        {
+          "street": "An Bình",
+          "ward": "Cẩm Dương",
+          "province": "Nam Hà"
+        }
+      ],
+      "address": "P. C.D., TP. N.H.",
+      "expected": {
+        "street": "",
+        "ward": "Cẩm Dương",
+        "province": "Nam Hà"
+      }
+    },
+    {
+      "name": "Tên đường đầy đủ có ưu tiên",
+      "links": [
+        {
+          "street": "An Bình",
+          "ward": "Cẩm Dương",
+          "province": "Nam Hà"
+        }
+      ],
+      "address": "Đường An Bắc, Phường Cẩm Dương, Nam Hà",
+      "expected": {
+        "street": "An Bắc",
+        "ward": "Cẩm Dương",
+        "province": "Nam Hà"
+      }
+    }
+  ]
+}

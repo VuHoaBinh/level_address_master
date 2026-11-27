@@ -1,0 +1,472 @@
+[
+  {
+    "id": "manual-01",
+    "address": "Quang Trung, Tỉnh Quảng Ninh",
+    "expected": [
+      {
+        "street": "Quang Trung",
+        "ward": "",
+        "province": "Quảng Ninh"
+      },
+      {
+        "street": "",
+        "ward": "Quang Trung",
+        "province": "Quảng Ninh"
+      }
+    ]
+  },
+  {
+    "id": "manual-02",
+    "address": "P.CL, TP Đà Nẵng",
+    "expected": [
+      {
+        "street": "",
+        "ward": "Cẩm Lệ",
+        "province": "Đà Nẵng"
+      },
+      {
+        "street": "",
+        "ward": "Cửa Lò",
+        "province": "Đà Nẵng"
+      },
+      {
+        "street": "",
+        "ward": "Chí Linh",
+        "province": "Đà Nẵng"
+      }
+    ]
+  },
+  {
+    "id": "manual-03",
+    "address": "Đường Nguyen Du, Đà Nẵng",
+    "expected": [
+      {
+        "street": "Nguyễn Du",
+        "ward": "",
+        "province": "Đà Nẵng"
+      },
+      {
+        "street": "Nguyễn Dữ",
+        "ward": "",
+        "province": "Đà Nẵng"
+      }
+    ]
+  },
+  {
+    "id": "manual-04",
+    "address": "Đường Nguyễn Dữ, Đà Nẵng",
+    "expected": {
+      "street": "Nguyễn Dữ",
+      "ward": "",
+      "province": "Đà Nẵng"
+    }
+  },
+  {
+    "id": "manual-05",
+    "address": "TP.HCM",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Hồ Chí Minh"
+    }
+  },
+  {
+    "id": "manual-06",
+    "address": "Hà Nội, phố Yên Phụ, phường Tây Hồ, Việt Nam",
+    "expected": {
+      "street": "Yên Phụ",
+      "ward": "Tây Hồ",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-07",
+    "address": "Phường Tây Hồ / Hà Nội / Phố Yên Phụ",
+    "expected": {
+      "street": "Yên Phụ",
+      "ward": "Tây Hồ",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-08",
+    "address": "Hà Nội — Phường Tây Hồ — Phố Yên Phụ",
+    "expected": {
+      "street": "Yên Phụ",
+      "ward": "Tây Hồ",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-09",
+    "address": "Quận Tây Hồ, Phường Tây Hồ, Phố Yên Phụ, TP Hà Nội",
+    "expected": {
+      "street": "Yên Phụ",
+      "ward": "Tây Hồ",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-10",
+    "address": "Quận Tây Hồ, Phố Yên Phụ, TP Hà Nội",
+    "expected": {
+      "street": "Yên Phụ",
+      "ward": "",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-11",
+    "address": "Ngõ 76, Phường Tây Hồ, Thành phố Hà Nội",
+    "expected": {
+      "street": "",
+      "ward": "Tây Hồ",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-12",
+    "address": "Số nhà 105A, Hẻm 12/4, TP.HCM",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Hồ Chí Minh"
+    }
+  },
+  {
+    "id": "manual-13",
+    "address": "123 Đường Không Có Trong Danh Mục XYZ, TP Hà Nội",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-14",
+    "address": "Hẻm 24/8 Tổ 8",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": ""
+    }
+  },
+  {
+    "id": "manual-15",
+    "address": "N/A",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": ""
+    }
+  },
+  {
+    "id": "manual-16",
+    "address": "Giao ở phường Cẩm Lệ, thành phố Đà Nẵng, hẻm 12 đường Phạm Viết Chánh",
+    "expected": {
+      "street": "Phạm Viết Chánh",
+      "ward": "Cẩm Lệ",
+      "province": "Đà Nẵng"
+    }
+  },
+  {
+    "id": "manual-17",
+    "address": "PhuongCamLe ThanhPhoDaNang DuongPhamVietChanh",
+    "expected": {
+      "street": "Phạm Viết Chánh",
+      "ward": "Cẩm Lệ",
+      "province": "Đà Nẵng"
+    }
+  },
+  {
+    "id": "manual-18",
+    "address": "Phạm Chánh P Cẩm Lệ TP Đà Nẵng",
+    "expected": {
+      "street": "Phạm Viết Chánh",
+      "ward": "Cẩm Lệ",
+      "province": "Đà Nẵng"
+    }
+  },
+  {
+    "id": "manual-19",
+    "address": "Duong P.V.C., p.Cam L., TP.DN",
+    "expected": [
+      {
+        "street": "Phạm Viết Chánh",
+        "ward": "Cẩm Lệ",
+        "province": "Đà Nẵng"
+      },
+      {
+        "street": "Phạm Viết Chánh",
+        "ward": "Cẩm Lệ",
+        "province": "Đồng Nai"
+      }
+    ]
+  },
+  {
+    "id": "manual-20",
+    "address": "Đường 12345, Đà Nẵng",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Đà Nẵng"
+    }
+  },
+  {
+    "id": "manual-21",
+    "address": "Ngõ 76 Phố Yên Phụ, T.Hồ, HN",
+    "expected": {
+      "street": "Yên Phụ",
+      "ward": "Tây Hồ",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-22",
+    "address": "Đường Lý Son, Phường Bồ Đề, T.P. H.N.",
+    "expected": {
+      "street": "Lý Sơn",
+      "ward": "Bồ Đề",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-23",
+    "address": "Q. Hoàn Kiếm, TP. Hà Nội",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-24",
+    "address": "Phố Yên Phụ (gần hồ Tây), Hà Nội",
+    "expected": {
+      "street": "Yên Phụ",
+      "ward": "",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-25",
+    "address": "Đường Số 8, Đà Nẵng",
+    "expected": {
+      "street": "Số 8",
+      "ward": "",
+      "province": "Đà Nẵng"
+    }
+  },
+  {
+    "id": "manual-26",
+    "address": "Gửi cho Lan tại Hà Nội, sđt 0912345678",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-27",
+    "address": "Tỉnh Quảng Ninh, Khu phố Quang Trung",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Quảng Ninh"
+    }
+  },
+  {
+    "id": "manual-28",
+    "address": "Phố Yên Phụ quận Tây Hồ TP Hà Nội",
+    "expected": {
+      "street": "Yên Phụ",
+      "ward": "",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-29",
+    "address": "Q. Tây Hồ Hà Nội",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-30",
+    "address": "Huyện Tây Hồ, TP Hà Nội",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-31",
+    "address": "Đường Ấp Bắc, Phường Trung An, Tỉnh Đồng Tháp",
+    "expected": {
+      "street": "Ấp Bắc",
+      "ward": "Trung An",
+      "province": "Đồng Tháp"
+    }
+  },
+  {
+    "id": "manual-32",
+    "address": "TP. Hà Nội, Đ. Âu ơ, P. Tây Hồ",
+    "expected": {
+      "street": "Âu Cơ",
+      "ward": "Tây Hồ",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-33",
+    "address": "TP. Đà Nẵng, Đ. ốS 8, P. Hải Châu",
+    "expected": {
+      "street": "Số 8",
+      "ward": "Hải Châu",
+      "province": "Đà Nẵng"
+    }
+  },
+  {
+    "id": "manual-34",
+    "address": "Đường Hải 4, P. Nghĩa Trụ, TP. Hưng Yên",
+    "expected": {
+      "street": "Hải Âu 4",
+      "ward": "Nghĩa Trụ",
+      "province": "Hưng Yên"
+    }
+  },
+  {
+    "id": "manual-35",
+    "address": "TP. Lâm Đồng, Đ. Trần Hng Đạo, P. Phan Thiết",
+    "expected": {
+      "street": "Trần Hưng Đạo",
+      "ward": "Phan Thiết",
+      "province": "Lâm Đồng"
+    }
+  },
+  {
+    "id": "manual-36",
+    "address": "Đường Trần Đạo, P.Phan Thiết, TP.Lâm Đồng",
+    "expected": {
+      "street": "Trần Hưng Đạo",
+      "ward": "Phan Thiết",
+      "province": "Lâm Đồng"
+    }
+  },
+  {
+    "id": "manual-37",
+    "address": "Trần Hưng Đạo, Phường Phan Thiết, Tỉnh Lâm Đồng",
+    "expected": {
+      "street": "Trần Hưng Đạo",
+      "ward": "Phan Thiết",
+      "province": "Lâm Đồng"
+    }
+  },
+  {
+    "id": "manual-38",
+    "address": "Đường Tran Hung Dao, P.Phan Thiết, TP.Lâm Đồng",
+    "expected": [
+      {
+        "street": "Trần Hưng Đạo",
+        "ward": "Phan Thiết",
+        "province": "Lâm Đồng"
+      },
+      {
+        "street": "Trấn Hưng Đạo",
+        "ward": "Phan Thiết",
+        "province": "Lâm Đồng"
+      }
+    ]
+  },
+  {
+    "id": "manual-39",
+    "address": "TP.Cần Thơ, P.Ninh Kiều, Đ.Q.T",
+    "expected": [
+      {
+        "street": "Quang Trung",
+        "ward": "Ninh Kiều",
+        "province": "Cần Thơ"
+      },
+      {
+        "street": "Quyết Thắng",
+        "ward": "Ninh Kiều",
+        "province": "Cần Thơ"
+      }
+    ]
+  },
+  {
+    "id": "manual-40",
+    "address": "ThanhPho Đà Nẵng",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Đà Nẵng"
+    }
+  },
+  {
+    "id": "manual-41",
+    "address": "461 ại lộ Bình Dương",
+    "expected": {
+      "street": "Đại lộ Bình Dương",
+      "ward": "",
+      "province": ""
+    }
+  },
+  {
+    "id": "manual-42",
+    "address": "Khánh Hòa Exprt Bắc Nha Trang",
+    "expected": {
+      "street": "Export",
+      "ward": "Bắc Nha Trang",
+      "province": "Khánh Hòa"
+    }
+  },
+  {
+    "id": "manual-43",
+    "address": "Đà Nẵng ốS 8 Hải Châu",
+    "expected": {
+      "street": "Số 8",
+      "ward": "Hải Châu",
+      "province": "Đà Nẵng"
+    }
+  },
+  {
+    "id": "manual-44",
+    "address": "Hà Nội Âu ơ Tây Hồ",
+    "expected": {
+      "street": "Âu Cơ",
+      "ward": "Tây Hồ",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "id": "manual-45",
+    "address": "Đồng Tháp Ấp ắc Trung An",
+    "expected": {
+      "street": "Ấp Bắc",
+      "ward": "Trung An",
+      "province": "Đồng Tháp"
+    }
+  },
+  {
+    "id": "manual-46",
+    "address": "Đồng Tháp Ấp ắBc Trung An",
+    "expected": {
+      "street": "Ấp Bắc",
+      "ward": "Trung An",
+      "province": "Đồng Tháp"
+    }
+  },
+  {
+    "id": "manual-47",
+    "address": "Ấp Quang Trung, TP Đà Nẵng",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Đà Nẵng"
+    }
+  }
+]

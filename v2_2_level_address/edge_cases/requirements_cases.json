@@ -1,0 +1,299 @@
+[
+  {
+    "name": "Đảo thứ tự",
+    "address": "TP Hà Nội, Phố Yên Phụ, Phường Tây Hồ",
+    "expected": {
+      "street": "Yên Phụ",
+      "ward": "Tây Hồ",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "name": "Thiếu phường",
+    "address": "Phố Yên Phụ, Hà Nội",
+    "expected": {
+      "street": "Yên Phụ",
+      "ward": "",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "name": "Thiếu tỉnh",
+    "address": "Phường Tây Hồ, Phố Yên Phụ",
+    "expected": {
+      "street": "Yên Phụ",
+      "ward": "Tây Hồ",
+      "province": ""
+    }
+  },
+  {
+    "name": "Chỉ có đường",
+    "address": "Phố Yên Phụ",
+    "expected": {
+      "street": "Yên Phụ",
+      "ward": "",
+      "province": ""
+    }
+  },
+  {
+    "name": "Thông tin dư",
+    "address": "Việt Nam, TP Hà Nội, Quận Tây Hồ, Tổ 5, Khu phố 2, Phố Yên Phụ",
+    "expected": {
+      "street": "Yên Phụ",
+      "ward": "",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "name": "Dấu phân cách",
+    "address": "Phố Yên Phụ — Phường Tây Hồ / TP Hà Nội",
+    "expected": {
+      "street": "Yên Phụ",
+      "ward": "Tây Hồ",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "name": "Thiếu dấu phẩy",
+    "address": "Phố Yên Phụ Phường Tây Hồ TP Hà Nội",
+    "expected": {
+      "street": "Yên Phụ",
+      "ward": "Tây Hồ",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "name": "Viết tắt HCM",
+    "address": "HCM",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Hồ Chí Minh"
+    }
+  },
+  {
+    "name": "Viết tắt SG",
+    "address": "SG",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Hồ Chí Minh"
+    }
+  },
+  {
+    "name": "Viết tắt HN",
+    "address": "HN",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "name": "Viết tắt phường",
+    "address": "P.CL, TP Đà Nẵng",
+    "expected": {
+      "street": "",
+      "ward": "Cẩm Lệ",
+      "province": "Đà Nẵng"
+    }
+  },
+  {
+    "name": "Sai chính tả",
+    "address": "Đường Lý Son, Phường Bồ Đề, T.P. H.N.",
+    "expected": {
+      "street": "Lý Sơn",
+      "ward": "Bồ Đề",
+      "province": "Hà Nội"
+    }
+  },
+  {
+    "name": "Thiếu ký tự",
+    "address": "Đường Ph Vt Cn, P. Cẩm Lệ, TP. Đà Nẵng",
+    "expected": {
+      "street": "Phạm Viết Chánh",
+      "ward": "Cẩm Lệ",
+      "province": "Đà Nẵng"
+    }
+  },
+  {
+    "name": "Mã đường dạng viết liền",
+    "address": "QL4D",
+    "expected": {
+      "street": "Quốc Lộ 4D",
+      "ward": "",
+      "province": ""
+    }
+  },
+  {
+    "name": "Mã đường dạng chấm",
+    "address": "QL.4D",
+    "expected": {
+      "street": "Quốc Lộ 4D",
+      "ward": "",
+      "province": ""
+    }
+  },
+  {
+    "name": "Mã đường dạng cách",
+    "address": "QL 4D",
+    "expected": {
+      "street": "Quốc Lộ 4D",
+      "ward": "",
+      "province": ""
+    }
+  },
+  {
+    "name": "Mã đường với dấu gạch",
+    "address": "QL-4D",
+    "expected": {
+      "street": "Quốc Lộ 4D",
+      "ward": "",
+      "province": ""
+    }
+  },
+  {
+    "name": "Chữ cái mã đường có dấu chấm",
+    "address": "Q.L.18",
+    "expected": {
+      "street": "Quốc Lộ 18",
+      "ward": "",
+      "province": ""
+    }
+  },
+  {
+    "name": "Dạng dài có mã",
+    "address": "Quốc Lộ 4H, Tỉnh Lai Châu",
+    "expected": {
+      "street": "Quốc Lộ 4H",
+      "ward": "",
+      "province": "Lai Châu"
+    }
+  },
+  {
+    "name": "Mã đường có ngữ cảnh",
+    "address": "79 QL4D, Phường Lào Cai, Lào Cai",
+    "expected": {
+      "street": "Quốc Lộ 4D",
+      "ward": "Lào Cai",
+      "province": "Lào Cai"
+    }
+  },
+  {
+    "name": "Mã 4C ngoài từ điển",
+    "address": "Đường Quốc Lộ 4C, P. Lào Cai, Tỉnh Lào Cai",
+    "expected": {
+      "street": "",
+      "ward": "Lào Cai",
+      "province": "Lào Cai"
+    }
+  },
+  {
+    "name": "Mã 4Z ngoài từ điển",
+    "address": "Đường Quốc Lộ 4Z",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": ""
+    }
+  },
+  {
+    "name": "Mã 4 ngoài từ điển",
+    "address": "QL4, Tỉnh Lai Châu",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Lai Châu"
+    }
+  },
+  {
+    "name": "Mã 49 nguyên vẹn",
+    "address": "QL49",
+    "expected": {
+      "street": "Quốc Lộ 49",
+      "ward": "",
+      "province": ""
+    }
+  },
+  {
+    "name": "Địa danh ngoài từ điển",
+    "address": "Tỉnh Đắk Lắk",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": ""
+    }
+  },
+  {
+    "name": "Tên không tìm được ứng viên",
+    "address": "Đường Vô Danh XYZ, TP Đà Nẵng",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Đà Nẵng"
+    }
+  },
+  {
+    "name": "Viết tắt tên khi có tỉnh rút gọn",
+    "address": "Đường PVC, P. CL, TP. DaN",
+    "expected": {
+      "street": "Phạm Viết Chánh",
+      "ward": "Cẩm Lệ",
+      "province": "Đà Nẵng"
+    }
+  },
+  {
+    "name": "Phường có hai ký tự thừa",
+    "address": "P. Cwam Lwe",
+    "expected": {
+      "street": "",
+      "ward": "Cẩm Lệ",
+      "province": ""
+    }
+  },
+  {
+    "name": "Phường lỗi hai ký tự cạnh tỉnh rút gọn",
+    "address": "Đường PVC, P. Cwam Lwe, TP. DaN",
+    "expected": {
+      "street": "Phạm Viết Chánh",
+      "ward": "Cẩm Lệ",
+      "province": "Đà Nẵng"
+    }
+  },
+  {
+    "name": "CL tại Nghệ An",
+    "address": "P.CL, T. Nghệ An",
+    "expected": {
+      "street": "",
+      "ward": "Cửa Lò",
+      "province": "Nghệ An"
+    }
+  },
+  {
+    "name": "CL tại Hải Phòng",
+    "address": "P.CL, TP. Hải Phòng",
+    "expected": {
+      "street": "",
+      "ward": "Chí Linh",
+      "province": "Hải Phòng"
+    }
+  },
+  {
+    "name": "CL ở tỉnh không phù hợp",
+    "address": "P.CL, TP. Huế",
+    "expected": {
+      "street": "",
+      "ward": "",
+      "province": "Huế"
+    }
+  },
+  {
+    "name": "Phường ghi đầy đủ",
+    "address": "P. Cẩm Lệ",
+    "expected": {
+      "street": "",
+      "ward": "Cẩm Lệ",
+      "province": ""
+    }
+  }
+]

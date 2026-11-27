@@ -1,0 +1,251 @@
+{
+  "links": [
+    {
+      "street": "Quang Trung",
+      "ward": "Ninh Kiều",
+      "province": "Cần Thơ"
+    },
+    {
+      "street": "Đinh Lễ",
+      "ward": "Đồng Hới",
+      "province": "Quảng Trị"
+    },
+    {
+      "street": "Phạm Viết Chánh",
+      "ward": "Cẩm Lệ",
+      "province": "Đà Nẵng"
+    },
+    {
+      "street": "Đặng Thai Mai",
+      "ward": "Tây Hồ",
+      "province": "Hà Nội"
+    },
+    {
+      "street": "Đặng Vũ Hỷ",
+      "ward": "Việt Hưng",
+      "province": "Hà Nội"
+    },
+    {
+      "street": "Đức Giang",
+      "ward": "Việt Hưng",
+      "province": "Hà Nội"
+    }
+  ],
+  "cases": [
+    {
+      "address": "Đ. Q.T., P. Ninh Kiều, TP Cần Thơ",
+      "expected": {
+        "street": "Quang Trung",
+        "ward": "Ninh Kiều",
+        "province": "Cần Thơ"
+      }
+    },
+    {
+      "address": "P. Ninh Kiều, TP Cần Thơ, Q.T.",
+      "expected": {
+        "street": "Quang Trung",
+        "ward": "Ninh Kiều",
+        "province": "Cần Thơ"
+      }
+    },
+    {
+      "address": "Q.T. P. Ninh Kiều TP Cần Thơ",
+      "expected": {
+        "street": "Quang Trung",
+        "ward": "Ninh Kiều",
+        "province": "Cần Thơ"
+      }
+    },
+    {
+      "address": "TP Cần Thơ, Q.T.",
+      "expected": {
+        "street": "Quang Trung",
+        "ward": "",
+        "province": "Cần Thơ"
+      }
+    },
+    {
+      "address": "Q.T., Phường Ninh Kiều",
+      "expected": {
+        "street": "Quang Trung",
+        "ward": "Ninh Kiều",
+        "province": ""
+      }
+    },
+    {
+      "address": "Q.T., P. Ninh Kiều, TP Huế",
+      "expected": {
+        "street": "",
+        "ward": "Ninh Kiều",
+        "province": "Huế"
+      }
+    },
+    {
+      "address": "Q.T., TP Hà Nội",
+      "expected": {
+        "street": "",
+        "ward": "",
+        "province": "Hà Nội"
+      }
+    },
+    {
+      "address": "Q.T.",
+      "expected": {
+        "street": "",
+        "ward": "",
+        "province": ""
+      }
+    },
+    {
+      "address": "Đường Quyết Thắng, P. Ninh Kiều, TP Cần Thơ",
+      "expected": {
+        "street": "Quyết Thắng",
+        "ward": "Ninh Kiều",
+        "province": "Cần Thơ"
+      }
+    },
+    {
+      "address": "Q. Tây Hồ, Phố Yên Phụ, TP Hà Nội",
+      "expected": {
+        "street": "Yên Phụ",
+        "ward": "",
+        "province": "Hà Nội"
+      }
+    },
+    {
+      "address": "TP Quảng Trị P Đồng Hới Đ.Đ.L",
+      "expected": {
+        "street": "Đinh Lễ",
+        "ward": "Đồng Hới",
+        "province": "Quảng Trị"
+      }
+    },
+    {
+      "address": "P.CL, TP Đà Nẵng",
+      "expected": {
+        "street": "",
+        "ward": "Cẩm Lệ",
+        "province": "Đà Nẵng"
+      }
+    },
+    {
+      "address": "Q.T, P. Ninh Kiều, TP Cần Thơ",
+      "expected": {
+        "street": "Quang Trung",
+        "ward": "Ninh Kiều",
+        "province": "Cần Thơ"
+      }
+    },
+    {
+      "address": "QT, P. Ninh Kiều, TP Cần Thơ",
+      "expected": {
+        "street": "Quang Trung",
+        "ward": "Ninh Kiều",
+        "province": "Cần Thơ"
+      }
+    },
+    {
+      "address": "P Ninh Kiều QT TP Cần Thơ",
+      "expected": {
+        "street": "Quang Trung",
+        "ward": "Ninh Kiều",
+        "province": "Cần Thơ"
+      }
+    },
+    {
+      "address": "Đ.T.M, P. Tây Hồ, TP Hà Nội",
+      "expected": {
+        "street": "Đặng Thai Mai",
+        "ward": "Tây Hồ",
+        "province": "Hà Nội"
+      }
+    },
+    {
+      "address": "Đ.V.H, P. Việt Hưng, TP Hà Nội",
+      "expected": {
+        "street": "Đặng Vũ Hỷ",
+        "ward": "Việt Hưng",
+        "province": "Hà Nội"
+      }
+    },
+    {
+      "address": "TP Hà Nội, P. Tây Hồ, Đ.T.M.",
+      "expected": {
+        "street": "Đặng Thai Mai",
+        "ward": "Tây Hồ",
+        "province": "Hà Nội"
+      }
+    },
+    {
+      "address": "QT",
+      "expected": {
+        "street": "",
+        "ward": "",
+        "province": ""
+      }
+    },
+    {
+      "address": "QT, P. Ninh Kiều, TP Huế",
+      "expected": {
+        "street": "",
+        "ward": "Ninh Kiều",
+        "province": "Huế"
+      }
+    },
+    {
+      "address": "P. Ninh Kiều, TP Cần Thơ",
+      "expected": {
+        "street": "",
+        "ward": "Ninh Kiều",
+        "province": "Cần Thơ"
+      }
+    },
+    {
+      "address": "ĐG, P.Việt Hưng, TP.Hà Nội",
+      "expected": {
+        "street": "Đức Giang",
+        "ward": "Việt Hưng",
+        "province": "Hà Nội"
+      }
+    },
+    {
+      "address": "ĐG Đức Giang, P.Việt Hưng, TP.Hà Nội",
+      "expected": {
+        "street": "Đức Giang",
+        "ward": "Việt Hưng",
+        "province": "Hà Nội"
+      }
+    },
+    {
+      "address": "Đ.Q.T., P.N.K., TP.C.T.",
+      "expected": {
+        "street": "Quang Trung",
+        "ward": "Ninh Kiều",
+        "province": "Cần Thơ"
+      }
+    },
+    {
+      "address": "QT NK CT",
+      "expected": {
+        "street": "Quang Trung",
+        "ward": "Ninh Kiều",
+        "province": "Cần Thơ"
+      }
+    },
+    {
+      "address": "Đ.T.M, TP Huế",
+      "expected": [
+        {
+          "street": "Đặng Thai Mai",
+          "ward": "",
+          "province": "Huế"
+        },
+        {
+          "street": "Thánh Mẫu",
+          "ward": "",
+          "province": "Huế"
+        }
+      ]
+    }
+  ]
+}
